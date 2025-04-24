@@ -1,0 +1,18 @@
+{
+  "name": "csms",
+  "version": "1.0.0",
+  "description": "a minimal course and subscription managemnet system ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "csms",
+    "project",
+    "mini",
+    "DBMS",
+    "project"
+  ],
+  "author": "venki",
+  "license": "ISC"
+}
