@@ -2,10 +2,12 @@
   "name": "csms",
   "version": "1.0.0",
   "description": "a minimal course and subscription managemnet system ",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "keywords": [
     "csms",
@@ -18,5 +20,13 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.15.5",
+    "postgres": "^3.4.5"
   }
 }
