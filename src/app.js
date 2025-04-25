@@ -1,7 +1,7 @@
 import express from 'express';
-import pool from './db/index.js';
 import authRouter from './routes/auth.routes.js';
 import courseRouter from './routes/course.routes.js';
+import categoryRouter from './routes/category.routes.js';
 const app = express();
 
 
@@ -14,5 +14,6 @@ app.get('/', (req, res) =>{
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/course', courseRouter);
+app.use('/api/v1/category', categoryRouter);
 
 export default app;
