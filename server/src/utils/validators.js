@@ -11,3 +11,4 @@ export const isValidName = (name) =>{
 export const isPasswordStrong = (password) =>{
     return password.length <= 8;
 }
+

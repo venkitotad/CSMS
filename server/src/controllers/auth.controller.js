@@ -14,15 +14,15 @@ export const register = async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return res.status(400).json({ message: "all feilds are required!." });
+      return res.status(400).json({ message: "All feilds are required!." });
     }
 
     if (!isValidEmail(email)) {
-      return res.status(400).json({ message: 'invlaid email' });
+      return res.status(400).json({ message: 'Invlaid email' });
     }
 
     if (!isValidName(name)) {
-      return res.status(400).json({ message: 'invlaid name' });
+      return res.status(400).json({ message: ' Invlaid name' });
     }
 
     if (!isPasswordStrong(password)) {
@@ -39,12 +39,11 @@ export const register = async (req, res) => {
     const password_hash = await bcrypt.hash(password, salt);
 
     const user = await createUser(name, email, password_hash);
-    const token = jwt.sign({ userId: user.id }, JWT_SECERT, { expiresIn: "1d" });
+    // const token = jwt.sign({ userId: user.id }, JWT_SECERT, { expiresIn: "1h" });
 
     res.status(201).json({
       message: 'user created successfully!..',
-      user,
-      token
+      user
     })
 
 
@@ -61,11 +60,11 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: 'all feilds are required' });
+      return res.status(400).json({ message: 'All feilds are required' });
     }
 
     if (!isValidEmail(email)) {
-      return res.status(400).json({ message: 'invalid email' });
+      return res.status(400).json({ message: 'Invalid email' });
     }
 
     const user = await findUserByEmail(email);
@@ -77,7 +76,7 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({ message: 'invalid credntials' })
+      return res.status(400).json({ message: 'Invalid credntials' })
     }
 
 
@@ -85,8 +84,7 @@ export const login = async (req, res) => {
 
     res.status(200).json({
       message: 'logged In successful',
-      user,
-      token
+      user
     })
   } catch (error) {
     console.log(error);

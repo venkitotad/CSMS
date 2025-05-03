@@ -8,3 +8,7 @@ export const course = async (name, description) => {
     
     return result.rows[0];
 };
+
+export const getAllCourse = async() =>{
+    
+}
